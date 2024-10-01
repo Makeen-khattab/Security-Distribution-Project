@@ -16,7 +16,7 @@ DESCRIPTION = ""
 HOMEPAGE    = ""
 
 
-# LICENSE variables
+#LICENSE variables
 
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
@@ -57,13 +57,12 @@ do_compile () {
 
     ${CXX} ${S}/main.cpp -lssl -lcrypto -o hellossl 
 	
-
 }
 
 do_install () {
 	# Specify install commands here
-	:
-	
+	install -d ${D}/${bindir}
+	install -m 0755 hellossl ${D}/${bindir}/hellossl 
 }
 
 do_package_qa[noexec]="1"
